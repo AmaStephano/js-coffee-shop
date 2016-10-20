@@ -60,9 +60,18 @@
     var myImage = document.getElementById("coffee-image");
     var myRevenueMessage = document.getElementById("revenue");
 
+    var espresso = document.getElementById('espresso');
+    var latte = document.getElementById('latte');
+    var hotChocolate = document.getElementById('hot-chocolate');
+
     myImage.setAttribute('src', 'static/coffee_beans.jpg');
 
-    function makeCoffee() {
+    var drinksOrdered = [];
+
+    function makeCoffee(drinkType) {
+
+        drinksOrdered.push(drinkType);
+        console.log(drinksOrdered);
 
         myImage.setAttribute('src', 'static/coffee_machine.jpg');
 
@@ -76,7 +85,13 @@
 
     }
 
-    myImage.addEventListener('click', makeCoffee);
+    myImage.addEventListener('click', function() { return makeCoffee('brew'); });
+
+    espresso.addEventListener('click', function() { return makeCoffee('espresso'); });
+
+    latte.addEventListener('click', function() { return makeCoffee('latte'); });
+
+    hotChocolate.addEventListener('click', function() { return makeCoffee('hot-chocolate'); });
 
 
 
